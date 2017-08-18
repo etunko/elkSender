@@ -1,0 +1,45 @@
+{
+    "name" : "Test4",
+    "mail" : [
+        "mail_from" : "risk_support@sberbank.ru",
+        "mail_to"   : "risk_support@sberbank.ru",
+        "subject"   : "Param pam pam",
+        "body"      : "<html><body>Шалом мон Други<body></html>"
+    ],
+    "schedule" : [
+        "month"    : "*",
+        "day"      : "*",
+        "hour"     : "*",
+        "secunde"  : "*"
+    ]
+},
+{
+    "name" : "Test5",
+    "mail" : [
+        "mail_from" : "risk_support@sberbank.ru",
+        "mail_to"   : "risk_support@sberbank.ru",
+        "subject"   : "Param pam pam",
+        "body"      : "<html><body>Шалом мон Други<body></html>"
+    ],
+    "schedule" : [
+        "month"    : "*",
+        "day"      : "*",
+        "hour"     : "*",
+        "secunde"  : "*"
+    ]
+},
+{
+    "name" : "Test6",
+    "mail" : [
+        "mail_from" : "risk_support@sberbank.ru",
+        "mail_to"   : "risk_support@sberbank.ru",
+        "subject"   : "Param pam pam",
+        "body"      : "<html><body>Шалом мон Други<body></html>"
+    ],
+    "schedule" : [
+        "month"    : "*",
+        "day"      : "*",
+        "hour"     : "*",
+        "secunde"  : "*"
+    ]
+}

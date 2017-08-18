@@ -1,0 +1,182 @@
+    {
+    "events" :
+        [
+            {
+                "name":"Test5",
+                "mail":
+                {
+                    "mail_to"   : ["VAAstapenko@sberbank.ru", "IMKaydakov@sverbank.ru"],
+                    "mail_from" : "risk_support@sberbank",
+                    "subject"   : "Param pam pam"
+                },
+                "schedule" :
+                {
+                    "year"     : "*",
+                    "month"    : "*",
+                    "day"      : "*",
+                    "hour"     : "*",
+                    "minute"     : "*",
+                    "second"  : "0"
+                }
+            },
+            {
+                "name":"Test6",
+                "mail":
+                {
+                    "mail_to"   : ["VAAstapenko@sberbank.ru", "IMKaydakov@sverbank.ru"],
+                    "mail_from" : "risk_support@sberbank",
+                    "subject"   : "Param pam pam"
+                },
+                "schedule" :
+                {
+                    "year"     : "*",
+                    "month"    : "*",
+                    "day"      : "*",
+                    "hour"     : "*",
+                    "minute"     : "*",
+                    "second"  : "*/30"
+                },
+                "logic" :
+                {
+                    "queries" : [
+                        {
+                            "in_chain" : "1",
+                            "command" : "find",
+                            "query" : {"@timestamp" : {"$gte" : "<!'start_time'!>", "$lt" : "<!'end_time'!>"}},
+                            "result" : ["<!'count'!>", "<!$'vname'$!>", "<!$'provider'$!>","<!$'book_date'$!>"]
+                        },
+                        {
+                            "in_chain" : "2",
+                            "command" : "find",
+                            "query" : {"@timestamp" : {"$gte" : "<!'start_time'!>", "$lt" : "<!'end_time'!>"}},
+                            "result" : ["<!'count'!>", "<!$'vname'$!>", "<!$'provider'$!>","<!$'book_date'$!>"]
+                        }
+                    ],
+                    "condition_output" : [
+                        {
+                            "condition" :
+                            [
+                                {
+                                    "A" :
+                                        {
+                                           "in_chain": 1,
+                                           "variable": "<!'count'!>"
+                                        },
+                                    "command" : "!=",
+                                    "B" :
+                                        {
+                                            "constant": 0
+                                        }
+                                },
+                                "and",
+                                {
+                                    "A" :
+                                        {
+                                           "in_chain": 1,
+                                           "variable": "vname"
+                                        },
+                                    "command" : "!=",
+                                    "B" :
+                                        {
+                                            "constant": 0
+                                        }
+                                },
+                                "and",
+                                [
+                                    {
+                                        "A" :
+                                            {
+                                               "in_chain": 1,
+                                               "variable": "<!'count'!>"
+                                            },
+                                        "command" : "!=",
+                                        "B" :
+                                            {
+                                                "constant": 0
+                                            }
+                                    },
+                                    "or",
+                                    {
+                                        "A" :
+                                            {
+                                               "in_chain": 1,
+                                               "variable": "vname"
+                                            },
+                                        "command" : "!=",
+                                        "B" :
+                                            {
+                                                "constant": 0
+                                            }
+                                    }
+
+                                ]
+
+                            ],
+                            "output" : "Fail;, we're all gonna die"
+                        },
+                        {
+                            "condition" :
+                            [
+                                {
+                                    "A" :
+                                        {
+                                           "in_chain": 1,
+                                           "variable": "<!'count'!>"
+                                        },
+                                    "command" : "==",
+                                    "B" :
+                                        {
+                                            "constant": 0
+                                        }
+                                },
+                                "and",
+                                {
+                                    "A" :
+                                        {
+                                           "in_chain": 1,
+                                           "variable": "vname"
+                                        },
+                                    "command" : "!=",
+                                    "B" :
+                                        {
+                                            "constant": 0
+                                        }
+                                },
+                                "and",
+                                [
+                                    {
+                                        "A" :
+                                            {
+                                               "in_chain": 1,
+                                               "variable": "<!'count'!>"
+                                            },
+                                        "command" : "!=",
+                                        "B" :
+                                            {
+                                                "constant": 0
+                                            }
+                                    },
+                                    "or",
+                                    {
+                                        "A" :
+                                            {
+                                               "in_chain": 1,
+                                               "variable": "vname"
+                                            },
+                                        "command" : "==",
+                                        "B" :
+                                            {
+                                                "constant": "Check VAR calc for PK"
+                                            }
+                                    }
+
+                                ]
+
+                            ],
+                            "output" : "Ok, we'll live"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
