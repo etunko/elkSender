@@ -17,5 +17,7 @@ def print_some_times():
     s.run()
     print(time.time())
 
+print('Hey')
+
 
 print_some_times()
